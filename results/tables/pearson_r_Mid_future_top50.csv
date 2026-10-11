@@ -1,0 +1,9 @@
+,Cooling_SP,Wall_U,Window_U,Floor_U,Roof_U,Window_SHGC,Infiltration_rate,Sensible_HR_Eff
+Cooling_SP,1.0,0.5593,-0.3232,,0.2844,-0.3018,,
+Wall_U,0.5593,1.0,-0.5664,,-0.1435,-0.3786,,
+Window_U,-0.3232,-0.5664,1.0,,0.3154,0.4818,,
+Floor_U,,,,,,,,
+Roof_U,0.2844,-0.1435,0.3154,,1.0,-0.0019,,
+Window_SHGC,-0.3018,-0.3786,0.4818,,-0.0019,1.0,,
+Infiltration_rate,,,,,,,,
+Sensible_HR_Eff,,,,,,,,

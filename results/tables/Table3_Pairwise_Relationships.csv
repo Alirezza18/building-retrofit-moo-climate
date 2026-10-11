@@ -1,0 +1,7 @@
+Scenario,Pair,Pearson (r),Spearman (ρ),Regression slope
+Baseline scenario,EUI–OCI,0.998,0.984,0.5800
+Baseline scenario,EUI–IDD,-0.903,-0.998,-0.0050
+Baseline scenario,OCI–IDD,-0.908,-0.989,-0.0087
+Mid-future scenario,EUI–OCI,0.999,0.925,0.3602
+Mid-future scenario,EUI–IDD,-0.915,-0.981,-0.0322
+Mid-future scenario,OCI–IDD,-0.923,-0.946,-0.0902

@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or the accompanying dataset, please cite the paper and this repository."
+title: "A data-driven multi-objective optimization of building energy consumption, indoor discomfort, and CO2 emissions under future climate change and grid decarbonization"
+type: software
+version: 1.0.0
+date-released: "2026-10-11"
+license: MIT
+authors:
+  - family-names: "Ali Reza"
+    given-names: ""
+repository-code: "https://github.com/your-username/building-retrofit-moo-climate"
+keywords:
+  - building energy retrofit
+  - multi-objective optimization
+  - NSGA-II
+  - TOPSIS
+  - SHAP
+  - climate change
+  - grid decarbonization
+abstract: >-
+  Surrogate-model-driven multi-objective optimization of building retrofit
+  design considering energy use intensity (EUI), indoor discomfort degree (IDD)
+  and operational carbon intensity (OCI) under baseline and mid-future (2050)
+  climate and grid-decarbonization scenarios.
+preferred-citation:
+  type: article
+  title: "A data-driven multi-objective optimization of building energy consumption, indoor discomfort, and CO2 emissions under future climate change and grid decarbonization"
+  year: 2026
+  authors:
+    - family-names: "Ali Reza"
+      given-names: ""
