@@ -11,7 +11,7 @@ import pandas as pd
 from . import config, figures, optimization, sensitivity
 from .config import SCENARIO_LABELS, Settings
 from .data import load_scenarios
-from .io_utils import write_csv
+from .io_utils import write_csv, write_excel
 from .models import (
     MODEL_NAMES,
     SEARCH_SPACE,
@@ -26,9 +26,18 @@ def _log(msg: str) -> None:
     print(f"[pipeline] {msg}", flush=True)
 
 
-def _save_table(df: pd.DataFrame, name: str, settings: Settings, index: bool = False):
+def _save_table(
+    df: pd.DataFrame,
+    name: str,
+    settings: Settings,
+    index: bool = False,
+    excel: bool = False,
+):
+    """Write a result table as CSV, plus XLSX when the original script did."""
     settings.ensure_dirs()
     write_csv(df, config.TABLE_DIR / f"{name}.csv", index=index)
+    if excel:
+        write_excel(df, config.TABLE_DIR / f"{name}.xlsx", index=index)
 
 
 def _train_final_catboost(X_train, Y, targets, scenarios, kf, settings):
@@ -181,7 +190,8 @@ def run_pipeline(
             write_csv(pval, config.TABLE_DIR / f"{pval_prefix}_{s}_top50.csv", index=True)
 
     table3 = sensitivity.pairwise_objective_table(pareto_by_scenario, SCENARIO_LABELS)
-    _save_table(table3, "Table3_Pairwise_Relationships", settings)
+    # The original script exported this particular table as CSV *and* XLSX.
+    _save_table(table3, "Table3_Pairwise_Relationships", settings, excel=True)
 
     _log("done - figures in results/figures, tables in results/tables")
     return {

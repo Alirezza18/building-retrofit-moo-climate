@@ -83,6 +83,7 @@ package** rather than an interpolated point.
 
 ```
 building-retrofit-moo-climate/
+├── pipeline_full_colab.py        # ★ The ORIGINAL end-to-end script, verbatim
 ├── data/                         # Input simulation datasets (one per scenario)
 │   ├── Base_Scenario_with_OCE.csv
 │   └── 2050_Scenario_with_OCE.csv
@@ -97,10 +98,11 @@ building-retrofit-moo-climate/
 │   ├── io_utils.py               # Long-path-safe file helpers
 │   └── cli.py                    # `building-retrofit-moo` entry point
 ├── scripts/
-│   ├── run_pipeline.py           # Run without installing
+│   ├── run_pipeline.py           # Thin wrapper: run the package without installing
 │   └── verify_environment.py     # Dependency / data sanity check
 ├── notebooks/
-│   └── 00_quickstart_colab.ipynb # Colab-compatible front-end
+│   ├── pipeline_full_colab.ipynb # ★ The original script, runnable in Colab
+│   └── 00_quickstart_colab.ipynb # Colab front-end for the refactored package
 ├── results/
 │   ├── figures/                  # PNG (raster) + PDF (vector) figures
 │   └── tables/                   # All result tables (CSV)
@@ -110,6 +112,23 @@ building-retrofit-moo-climate/
 ├── CITATION.cff
 └── LICENSE
 ```
+
+### Which file is which?
+
+The original study was one long Google Colab script. Both the original and the
+refactored form are kept **in full**, so nothing about the work is hidden behind
+an abstraction:
+
+| File | What it is | How to run it |
+|---|---|---|
+| [`pipeline_full_colab.py`](pipeline_full_colab.py) | **The original end-to-end script, byte-for-byte unchanged** (1,410 lines, SHA-256 `083eb764…`). This is the authoritative record of the work. | Not directly — it is a Colab export containing `!pip install` lines, which is invalid Python outside a notebook. Open the notebook below instead. |
+| [`notebooks/pipeline_full_colab.ipynb`](notebooks/pipeline_full_colab.ipynb) | The same script as a **runnable Colab notebook**. Every code line is identical; only the lost cell boundaries were rebuilt from the `CELL n` markers. | Upload it to [Colab](https://colab.research.google.com/) and run all cells. |
+| [`scripts/run_pipeline.py`](scripts/run_pipeline.py) | A thin wrapper around the refactored package (~20 lines *by design*) — it just puts `src/` on the path and calls the real pipeline, which lives in `src/building_retrofit_moo/`. | `python scripts/run_pipeline.py` |
+| [`src/building_retrofit_moo/`](src/building_retrofit_moo) | The refactored implementation (~1,670 lines across 10 modules) — this is where the pipeline logic and all figures actually live. | `pip install -e .` then `building-retrofit-moo` |
+
+> The original script is a Colab notebook export, so it reads its two CSVs through
+> `google.colab.files.upload()`. The refactored package reads the committed files in
+> `data/` instead, which is why it can run headless and in CI.
 
 ---
 

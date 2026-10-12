@@ -28,3 +28,9 @@ def write_csv(df: pd.DataFrame, path: Path | str, index: bool = False, **kwargs)
     """``DataFrame.to_csv`` with long-path support."""
     ensure_dir(Path(path).parent)
     df.to_csv(fs_path(path), index=index, **kwargs)
+
+
+def write_excel(df: pd.DataFrame, path: Path | str, index: bool = False, **kwargs) -> None:
+    """``DataFrame.to_excel`` with long-path support (needs ``openpyxl``)."""
+    ensure_dir(Path(path).parent)
+    df.to_excel(fs_path(path), index=index, **kwargs)

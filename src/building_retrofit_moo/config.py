@@ -93,7 +93,9 @@ class Settings:
     # Figure quality
     fig_dpi: int = 600
     preview_dpi: int = 300
-    figure_formats: tuple[str, ...] = ("png", "pdf")
+    # The original Colab script wrote PNG + PDF + 600-dpi LZW TIFF for every
+    # figure, so all three formats are reproduced by default.
+    figure_formats: tuple[str, ...] = ("png", "pdf", "tif")
 
     # SHAP dependence configuration (x-feature + interaction colour feature)
     shap_dependence: tuple[dict, ...] = field(
