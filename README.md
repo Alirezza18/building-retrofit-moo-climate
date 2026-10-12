@@ -7,6 +7,12 @@
 [![Made with pymoo](https://img.shields.io/badge/optimization-NSGA--II-8A2BE2.svg)](https://pymoo.org/)
 [![Explainable AI](https://img.shields.io/badge/XAI-SHAP-orange.svg)](https://shap.readthedocs.io/)
 
+**Run it now — no install, no setup:**
+
+[![Open the full pipeline in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Alirezza18/building-retrofit-moo-climate/blob/main/notebooks/pipeline_full_colab.ipynb)
+[![Open the quickstart in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Alirezza18/building-retrofit-moo-climate/blob/main/notebooks/00_quickstart_colab.ipynb)
+[![Clone this repo](https://img.shields.io/badge/git-clone%20repo-2ea44f.svg)](https://github.com/Alirezza18/building-retrofit-moo-climate.git)
+
 This repository is the reproducible research code, data, and result artifacts for the
 paper **“A data-driven multi-objective optimization of building energy consumption,
 indoor discomfort, and CO₂ emissions under future climate change and grid
@@ -205,9 +211,14 @@ results["pareto"]["Baseline"]       # the ranked Pareto set
 
 ### In Google Colab
 
-Open [`notebooks/00_quickstart_colab.ipynb`](notebooks/00_quickstart_colab.ipynb) —
-it installs dependencies, locates the repo, runs the pipeline, and displays the
-resulting figures and tables inline.
+One click, no local setup — Colab installs the dependencies, clones the repo and
+runs the pipeline:
+
+- **[Open the full pipeline in Colab](https://colab.research.google.com/github/Alirezza18/building-retrofit-moo-climate/blob/main/notebooks/pipeline_full_colab.ipynb)** —
+  the original end-to-end script. Upload the two CSVs when prompted.
+- **[Open the quickstart in Colab](https://colab.research.google.com/github/Alirezza18/building-retrofit-moo-climate/blob/main/notebooks/00_quickstart_colab.ipynb)** —
+  runs the refactored pipeline against the CSVs already in `data/`, and displays
+  the resulting figures and tables inline.
 
 All outputs are written to `results/figures/` and `results/tables/`.
 
@@ -281,6 +292,52 @@ All outputs are written to `results/figures/` and `results/tables/`.
 paths can exceed Windows' 260-character `MAX_PATH` limit. This code is already
 long-path-safe via `io_utils.fs_path`, but if you still hit issues, enable long paths
 (`LongPathsEnabled`) or clone into a shorter directory such as `C:\repos\`.
+
+---
+
+## Sharing this work
+
+Pick the level of access you want to give:
+
+| What they want to do | Send them this | Access needed |
+|---|---|---|
+| Read the code, figures and tables | `https://github.com/Alirezza18/building-retrofit-moo-climate` | None — public |
+| Run the whole study themselves | the **Open in Colab** badges at the top | A Google account |
+| Download a snapshot as a ZIP | `https://github.com/Alirezza18/building-retrofit-moo-climate/archive/refs/heads/main.zip` | None |
+| Work on the code with you | a repository invite (below) | Write access |
+
+**Send it to a colleague (read-only).** Just share the repository link — they can
+browse everything, and to get a local copy:
+
+```bash
+git clone https://github.com/Alirezza18/building-retrofit-moo-climate.git
+cd building-retrofit-moo-climate
+pip install -r requirements.txt
+python scripts/run_pipeline.py --quick
+```
+
+**Let someone co-develop it (write access).** On GitHub go to
+**Settings → Collaborators and teams → Add people**, and enter their GitHub
+username. They get push access once they accept, and can then:
+
+```bash
+git clone https://github.com/Alirezza18/building-retrofit-moo-climate.git
+# make changes, then:
+git add <files> && git commit -m "..." && git push
+```
+
+Two cautions worth knowing before you invite anyone:
+
+- Write access means they can push to `main` directly, and can also delete the
+  repository. If you want a safer setup, ask them to work on a **fork** or a
+  branch and open a **pull request** instead — you review every change first.
+- Never paste a personal access token into a chat, notebook or commit; branch
+  protection plus pull requests is the safe default for shared work.
+
+**A permanent, citable snapshot.** Publish a release (see
+[docs/PUBLISHING.md](docs/PUBLISHING.md)) and connect the repo to Zenodo to mint a
+DOI. That gives your collaborator — and anyone citing the paper — a frozen
+version with a stable identifier, independent of later commits.
 
 ---
 
