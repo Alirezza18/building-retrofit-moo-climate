@@ -47,7 +47,7 @@ dev = ["pytest>=7.4", "ruff>=0.4", "jupyter>=1.0", "ipykernel>=6.0"]
 building-retrofit-moo = "building_retrofit_moo.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/your-username/building-retrofit-moo-climate"
+Homepage = "https://github.com/Alirezza18/building-retrofit-moo-climate"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
